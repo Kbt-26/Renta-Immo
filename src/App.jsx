@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import CardSection  from "@/components/ui/CardSection";
+import Header from "@/components/ui/Header";
 
 
 function App() {
@@ -152,6 +153,9 @@ function App() {
 
 
   return (
+    <div className="pt-20"> {/* pt-20 pour laisser de l’espace sous le header */}
+      <Header />
+
     <div className="p-6 grid grid-cols-2 gap-6">
 
 <CardSection
@@ -402,6 +406,7 @@ function App() {
           </CardContent>
         </Card>
       </div>
+    </div>
     </div>
   );
 }
