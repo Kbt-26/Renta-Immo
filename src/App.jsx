@@ -190,41 +190,19 @@ function App() {
       </div>
 
       <div className="col-span-2 grid grid-cols-1 gap-6 mt-6">
-      <Card>
-        <CardContent>
-          <h2 className="text-xl font-semibold">Le Financement</h2>
-          <div className="flex flex-wrap items-center gap-6">
-            <div className="flex-1">
-          <Label>Apport</Label>
-          <Input type="number" value={apport} onChange={(e) => setApport(Number(e.target.value))} />
-              </div>
-            <div className="flex-1">
-          <Label>Taux</Label>
-          <Input type="number" value={tauxCredit} onChange={(e) => setTauxCredit(Number(e.target.value))} />
-              </div>
-            <div className="flex-1">
-          <Label>Durée</Label>
-          <Input type="number" value={dureeCredit} onChange={(e) => setDureeCredit(Number(e.target.value))} />
-              </div>
-            <div className="flex-1">
-          <Label>Assurance crédit</Label>
-          <Input type="number" value={assuranceCredit} onChange={(e) => setAssuranceCredit(Number(e.target.value))} />
-              </div>
-            <div className="flex-1">
-          <Label>Autres frais</Label>
-          <Input type="number" value={autresFrais} onChange={(e) => setAutresFrais(Number(e.target.value))} />
-              </div>
-              <div className="flex-1">
-          <Label>Montant total emprunté</Label>
-          <Input type="number" value={montantTotalEmprunte.toFixed(2)} readOnly />
-              </div>
-            <div className="flex-1">
-          <Label>Mensualités crédit</Label>
-          <Input type="number" value={mensualiteCredit.toFixed(2)} readOnly />
-              </div>
-            </div>
-        </CardContent>
-      </Card>
+
+      <CardSection
+        title="Le Financement"
+        inputs={[
+          { label: "Apport", value: apport, setValue: setApport, symbol:"€"},
+          { label: "Taux", value: tauxCredit, setValue: setTauxCredit, symbol:"%"},
+          { label: "Durée", value: dureeCredit, setValue: setDureeCredit, symbol:"Ans"},
+          { label: "Assurance crédit", value: assuranceCredit, setValue: setAssuranceCredit, symbol:"%"},
+          { label: "Autres frais", value: autresFrais, setValue: setAutresFrais, symbol:"€"},
+          { label: "Montant total emprunté", value: montantTotalEmprunte, symbol:"€"},
+          { label: "Mensualités crédit", value: mensualiteCredit, symbol:"€"},
+        ]}
+      />
       </div>
       
       <div className="col-span-2 grid grid-cols-1 gap-6 mt-6">
