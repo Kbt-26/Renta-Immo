@@ -16,7 +16,10 @@ const InputField = ({ label, value, setValue, symbol = "€", isException = fals
   const handleChange = (e) => {
     let val = e.target.value;
 
-    if (!isException) {
+    if (isException) {
+      // N'autorise que les lettres, espaces et tirets (ajuste selon tes besoins)
+      val = val.replace(/[^a-zA-ZÀ-ÿ\s-]/g, "");
+    } else {
       // Autoriser uniquement les chiffres, virgules et points
       val = val.replace(/[^0-9.,]/g, "");
     }
@@ -54,7 +57,7 @@ const InputField = ({ label, value, setValue, symbol = "€", isException = fals
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          className="pr-10 text-right leading-none"
+          className="pr-10 leading-none"
         />
         {symbol && (
           <span className="absolute right-3 top-0 h-full flex items-center text-gray-500">

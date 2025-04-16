@@ -18,7 +18,7 @@ function App() {
   const [typeBien, setTypeBien] = useState("");
   const [prixAffiche, setPrixAffiche] = useState(0);
   const [travauxEstime, setTravauxEstime] = useState(0);
-  const fraisNotaire = prixAffiche * 0.08;
+  const fraisNotaire = (prixAffiche * 0.08).toFixed(0);
   const [prixReno, setPrixReno] = useState(0);
 
   // Charges globales
@@ -162,68 +162,33 @@ function App() {
     { label: "Cashflow net", value: cashflowNet, setValue: setCashflowNet, symbol:"€"  },
   ]}
 />
-      
-      <Card>
-        <CardContent>
-          <h2 className="text-xl font-semibold">Les Charges Globales</h2>
-          <div className="flex flex-wrap items-center gap-4">
-            <div className="flex-1">
-              <Label>Taxe foncière</Label>
-              <Input type="number" value={taxeFonciere} onChange={(e) => setTaxeFonciere(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Assurance PNO</Label>
-              <Input type="number" value={assurancePNO} onChange={(e) => setAssurancePNO(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Assurance GLI</Label>
-              <Input type="number" value={assuranceGLI} onChange={(e) => setAssuranceGLI(Number(e.target.value))} />
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+
+<CardSection
+  title="Charges globales"
+  inputs={[
+    { label: "Taxe foncière", value: taxeFonciere, setValue: setTaxeFonciere, symbol:"€/An" },
+    { label: "Assurance PNO", value: assurancePNO, setValue: setAssurancePNO, symbol:"€/Mois"  },
+    { label: "Assurance GLI", value: assuranceGLI, setValue: setAssuranceGLI, symbol:"€/Mois"  },
+  ]}
+/>
       
       <div className="col-span-2 grid grid-cols-1 gap-6 mt-6">
-      <Card>
-        <CardContent>
-          <h2 className="text-xl font-semibold">Le Bien</h2>
-          <div className="flex flex-wrap items-center gap-6">
-            <div className="flex-1">
-              <Label>Ville</Label>
-              <Input value={ville} onChange={(e) => setVille(e.target.value)} />
-            </div>
-            <div className="flex-1">
-              <Label>M2</Label>
-              <Input type="number" value={surface} onChange={(e) => setSurface(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Nombre de chambres</Label>
-              <Input type="number" value={nbChambres} onChange={(e) => setNbChambres(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Maison ou Appartement</Label>
-              <Input value={typeBien} onChange={(e) => setTypeBien(e.target.value)} />
-            </div>
-            <div className="flex-1">
-              <Label>Prix affiché</Label>
-              <Input type="number" value={prixAffiche} onChange={(e) => setPrixAffiche(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Travaux estimé</Label>
-              <Input type="number" value={travauxEstime} onChange={(e) => setTravauxEstime(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Frais de notaire 8%</Label>
-              <Input type="number" value={fraisNotaire.toFixed(2)} readOnly />
-            </div>
-            <div className="flex-1">
-              <Label>Prix une fois rénové</Label>
-              <Input type="number" value={prixReno} onChange={(e) => setPrixReno(Number(e.target.value))} />
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+
+      <CardSection
+        title="Le Bien"
+        inputs={[
+          { label: "Ville", value: ville, setValue: setVille, symbol:"", isException:true },
+          { label: "Type de bien", value: nbChambres, setValue: setNbChambres, isException:true},
+          { label: "Surface", value: surface, setValue: setSurface, symbol:"m2"  },
+          { label: "Nombre de chambres", value: nbChambres, setValue: setNbChambres},
+          { label: "Prix affiché", value: prixAffiche, setValue: setPrixAffiche, symbol:"€"},
+          { label: "Travaux estimé", value: travauxEstime, setValue: setTravauxEstime, symbol:"€"},
+          { label: "Prix une fois rénové", value: prixReno, setValue: setPrixReno, symbol:"€"},
+          { label: "Frais de notaires 8%", value: fraisNotaire, symbol:"€"},
+        ]}
+      />
       </div>
+
       <div className="col-span-2 grid grid-cols-1 gap-6 mt-6">
       <Card>
         <CardContent>

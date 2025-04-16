@@ -7,13 +7,14 @@ const CardSection = ({ title, inputs }) => {
       <CardContent>
         <h2 className="text-xl font-semibold">{title}</h2>
         <div className="flex flex-wrap items-center gap-4">
-          {inputs.map(({ label, value, setValue, symbol = "" }, index) => (
+          {inputs.map(({ label, value, setValue, symbol = "", isException=false }, index) => (
             <InputField
               key={index}
               label={label}
               value={value}
               setValue={setValue}
               symbol={symbol}
+              isException={isException}
             />
           ))}
         </div>
