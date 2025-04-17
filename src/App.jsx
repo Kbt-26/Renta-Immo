@@ -158,23 +158,23 @@ function App() {
 
     <div className="p-6 grid grid-cols-2 gap-6">
 
-<CardSection
-  title="Vos Objectifs"
-  inputs={[
-    { label: "Plus value", value: plusValue, setValue: setPlusValue, symbol:"€" },
-    { label: "Renta brute", value: rentaBrute, setValue: setRentaBrute, symbol:"%"  },
-    { label: "Cashflow net", value: cashflowNet, setValue: setCashflowNet, symbol:"€"  },
-  ]}
-/>
+      <CardSection
+        title="Vos Objectifs"
+        inputs={[
+          { label: "Plus value", value: plusValue, setValue: setPlusValue, symbol:"€" },
+          { label: "Renta brute", value: rentaBrute, setValue: setRentaBrute, symbol:"%"  },
+          { label: "Cashflow net", value: cashflowNet, setValue: setCashflowNet, symbol:"€"  },
+        ]}
+      />
 
-<CardSection
-  title="Charges globales"
-  inputs={[
-    { label: "Taxe foncière", value: taxeFonciere, setValue: setTaxeFonciere, symbol:"€/An" },
-    { label: "Assurance PNO", value: assurancePNO, setValue: setAssurancePNO, symbol:"€/Mois"  },
-    { label: "Assurance GLI", value: assuranceGLI, setValue: setAssuranceGLI, symbol:"€/Mois"  },
-  ]}
-/>
+      <CardSection
+        title="Charges globales"
+        inputs={[
+          { label: "Taxe foncière", value: taxeFonciere, setValue: setTaxeFonciere, symbol:"€/An" },
+          { label: "Assurance PNO", value: assurancePNO, setValue: setAssurancePNO, symbol:"€/Mois"  },
+          { label: "Assurance GLI", value: assuranceGLI, setValue: setAssuranceGLI, symbol:"€/Mois"  },
+        ]}
+      />
       
       <div className="col-span-2 grid grid-cols-1 gap-6 mt-6">
 
@@ -210,46 +210,21 @@ function App() {
       </div>
       
       <div className="col-span-2 grid grid-cols-1 gap-6 mt-6">
-      <Card>
-        <CardContent>
-          <h2 className="text-xl font-semibold">Type d'exploitation</h2>
-          <h3 className="font-semibold">LCD</h3>
-          <div className="flex flex-wrap items-center gap-6">
-            <div className="flex-1">
-              <Label>Prix nuité</Label>
-              <Input type="number" value={prixNuite} onChange={(e) => setPrixNuite(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Electricité (mois)</Label>
-              <Input type="number" value={electricite} onChange={(e) => setElectricite(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Eau (mois)</Label>
-              <Input type="number" value={eau} onChange={(e) => setEau(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>TV/Internet (mois)</Label>
-              <Input type="number" value={tvInternet} onChange={(e) => setTvInternet(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Commission conciergerie (%)</Label>
-              <Input type="number" value={commissionConciergerie} onChange={(e) => setCommissionConciergerie(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Vacances locatives par mois (%)</Label>
-              <Input type="number" value={vacancesLocativesLCD} onChange={(e) => setVacancesLocativesLCD(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Charges copro (mois)</Label>
-              <Input type="number" value={chargesCoproLCD} onChange={(e) => setChargesCoproLCD(Number(e.target.value))} />
-            </div>
-            <div className="flex-1">
-              <Label>Autres charges (mois)</Label>
-              <Input type="number" value={autresChargesLCD} onChange={(e) => setAutresChargesLCD(Number(e.target.value))} />
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+
+      <CardSection
+        title="Type d'exploitation"
+        subtitle="LCD"
+        inputs={[
+          { label: "Prix nuité", value: prixNuite, setValue: setPrixNuite, symbol:"€"},
+          { label: "Electricité", value: electricite, setValue: setElectricite, symbol:"€/Mois"},
+          { label: "Eau", value: eau, setValue: setEau, symbol:"€/Mois"},
+          { label: "TV/Internet", value: tvInternet, setValue: setTvInternet, symbol:"€/Mois"},
+          { label: "Comission conciergerie", value: commissionConciergerie, setValue: setCommissionConciergerie, symbol:"%"},
+          { label: "Vacances locatives", value: vacancesLocativesLCD, setValue:setVacancesLocativesLCD, symbol:"Mois"},
+          { label: "Charges de copro", value: chargesCoproLCD, setValue:setChargesCoproLCD, symbol:"€/Mois"},
+          { label: "Autres charges", value: autresChargesLCD, setValue:setAutresChargesLCD, symbol:"€/Mois"},
+        ]}
+      />
         </div>
         
       <div className="col-span-2 grid grid-cols-3 gap-6 mt-6">
